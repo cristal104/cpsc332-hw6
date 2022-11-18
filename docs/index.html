@@ -32,17 +32,26 @@
                     "font-size":"20pt",
                     "background-color":"lightgray"
                 });
-                    $($buttonStart).click(function () {
+                $($buttonStart).click(function () {
                     clearInterval(interval);
                     interval = setInterval(startTimer, 10);
+                    $($timerBackground).css({
+                    "background-color":"palegreen"
+                    });
                 });
     
                 $($buttonStop).click(function () {
                     clearInterval(interval);
+                    $($timerBackground).css({
+                      "background-color":"tomato"
+                    });
                 });
     
                 $($buttonReset).click(function () {
                     clearInterval(interval);
+                    $($timerBackground).css({
+                      "background-color":"lightgray"
+                    });
                     tens = "00";
                     seconds = "00";
                     $appendTens.html(tens);
