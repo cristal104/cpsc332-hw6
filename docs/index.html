@@ -23,8 +23,16 @@
                 var $buttonStop = $('#button-stop');
                 var $buttonReset = $('#button-reset');
                 var interval;
-    
-                $($buttonStart).click(function () {
+
+                // add class to timer-background and style 
+                var $timerBackground = $("p").addClass("timer-background");
+                $($timerBackground).css({
+                    "border-radius": "20px",
+                    "text-align": "center",
+                    "font-size":"20pt",
+                    "background-color":"lightgray"
+                });
+                    $($buttonStart).click(function () {
                     clearInterval(interval);
                     interval = setInterval(startTimer, 10);
                 });
