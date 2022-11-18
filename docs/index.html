@@ -32,6 +32,23 @@
                     "font-size":"20pt",
                     "background-color":"lightgray"
                 });
+
+                // add class to button and style
+                var $buttons = $("button").addClass("button-style");
+                $($buttons).css({
+                    "background-color": "#EA4C89",
+                    "border-radius": "15px",
+                    "border": "2px dotted purple",
+                    "font-family":"'Trebuchet MS', sans-serif",
+                    "color": "#FFFFFF",
+                    "cursor": "pointer",
+                    "display": "inline-block",
+                    "font-size":"14px",
+                    "padding": "10px 16px",
+                    "position": "relative",
+                    "text-align": "center",
+                    "vertical-align": "center",
+                });
                 $($buttonStart).click(function () {
                     clearInterval(interval);
                     interval = setInterval(startTimer, 10);
