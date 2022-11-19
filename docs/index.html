@@ -23,6 +23,13 @@
                 var $buttonStop = $('#button-stop');
                 var $buttonReset = $('#button-reset');
                 var interval;
+                var animationInterval;
+
+                function animateTimer() {
+                console.log("running Animation")
+                $($timerBackground).fadeTo("slow", 0.6)
+                $($timerBackground).fadeTo("slow", 1.0)
+                }
 
                 // add class to timer-background and style 
                 var $timerBackground = $("p").addClass("timer-background");
@@ -49,16 +56,27 @@
                     "text-align": "center",
                     "vertical-align": "center",
                 });
+
+                function animateTimer() {
+                    $($timerBackground).animate({opacity:'1'})
+                    $($timerBackground).animate({opacity:'0.8'})
+                }
+
                 $($buttonStart).click(function () {
                     clearInterval(interval);
+                    clearInterval(animationInterval);
                     interval = setInterval(startTimer, 10);
                     $($timerBackground).css({
-                    "background-color":"palegreen"
+                    "background-color":"lightgreen"
                     });
+                    // animation
+                    animationInterval = setInterval(animateTimer, 10);
                 });
     
                 $($buttonStop).click(function () {
                     clearInterval(interval);
+                    clearInterval(animationInterval);
+                    $($timerBackground).stop(true, true);
                     $($timerBackground).css({
                       "background-color":"tomato"
                     });
@@ -66,6 +84,8 @@
     
                 $($buttonReset).click(function () {
                     clearInterval(interval);
+                    clearInterval(animationInterval);
+                    $($timerBackground).stop(true, true);
                     $($timerBackground).css({
                       "background-color":"lightgray"
                     });
